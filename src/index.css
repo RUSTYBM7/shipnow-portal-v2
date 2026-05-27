@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts - Pacifico for script logo */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Glassmorphism Design System */
+@import './styles/design-system.css';
+@import './styles/glassmorphism.css';
+@import './styles/animations.css';
+
+/* AirPak ShipNow Brand Colors */
+:root {
+  --airpak-red: #DC143C;
+  --airpak-red-light: #E82545;
+  --airpak-script-red: #E63946;
+  --airpak-blue: #007AFF;
+  --airpak-green: #34C759;
+  --airpak-amber: #FF9500;
+  --airpak-gray: #8E8E93;
+  --bg-light: #F8FAFC;
+  --text-dark: #1F2937;
+}
+
+/* User's Exact Logo Classes */
+.font-airpak {
+  font-family: 'Pacifico', cursive;
+}
+
+.text-airpak-red {
+  color: #E63946;
+}
+
+.font-family-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+/* Custom Airpak Logo Sizes */
+.text-airpak-logo {
+  font-size: 120px;
+}
+
+.text-airpak-sm {
+  font-size: 48px;
+}
+
+.text-airpak-md {
+  font-size: 72px;
+}
+
+.text-airpak-lg {
+  font-size: 96px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C7C7CC;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8E8E93;
+}
+
+/* iMessage Style Bubbles */
+.imessage-bubble {
+  position: relative;
+}
+
+.imessage-bubble.sent {
+  background: #007AFF;
+  color: white;
+  border-radius: 20px 20px 4px 20px;
+}
+
+.imessage-bubble.received {
+  background: #E9E9EB;
+  color: #1F2937;
+  border-radius: 20px 20px 20px 4px;
+}
+
+.imessage-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 20px;
+}
+
+.imessage-bubble.sent::after {
+  right: -6px;
+  background: #007AFF;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+
+.imessage-bubble.received::after {
+  left: -6px;
+  background: #E9E9EB;
+  clip-path: polygon(0 0, 100% 100%, 100% 100%);
+}
+
+/* Map Pin Animation */
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-ping {
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Route Dash Animation */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-dash {
+  animation: dash 1s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+/* Typing Indicator */
+@keyframes typing-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-typing {
+  animation: typing-bounce 1.2s ease-in-out infinite;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Card Hover */
+.card-hover {
+  @apply transition-all duration-200 hover:shadow-md hover:-translate-y-0.5;
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply bg-[#DC143C] text-white font-semibold px-5 py-2.5 rounded-xl shadow-sm;
+  @apply hover:bg-[#B01030] transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-700 font-medium px-5 py-2.5 rounded-xl;
+  @apply hover:bg-gray-200 transition-colors;
+}
+
+.btn-imessage {
+  @apply bg-[#007AFF] text-white font-medium px-4 py-2 rounded-full;
+  @apply hover:bg-blue-600 transition-colors;
+}
+
+/* Safe Area for Mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Fluid Typography */
+.fluid-text {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+/* MapKit Style Container */
+.mapkit-container {
+  background: linear-gradient(180deg, #87CEEB 0%, #E8F4E8 100%);
+}
+
+/* Sparkline SVG */
+.sparkline path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Tier Colors */
+.tier-bronze { color: #CD7F32; }
+.tier-silver { color: #C0C0C0; }
+.tier-gold { color: #FFD700; }
+.tier-platinum { color: #E5E4E2; }
+
+/* Status Colors */
+.status-pending { @apply bg-yellow-100 text-yellow-700; }
+.status-in-transit { @apply bg-blue-100 text-blue-700; }
+.status-delivered { @apply bg-green-100 text-green-700; }
+.status-exception { @apply bg-red-100 text-red-700; }
+
+/* Custom Focus Styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-[#DC143C] ring-offset-2;
+}
+
+/* Bottom Sheet */
+.bottom-sheet {
+  @apply fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl shadow-2xl z-50;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-out;
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
+
+/* Progress Bar */
+.progress-bar {
+  @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-bar-fill {
+  @apply h-full bg-[#DC143C] rounded-full transition-all duration-500;
+}
+
+/* Step Indicator */
+.step-dot {
+  @apply w-3 h-3 rounded-full transition-all duration-300;
+}
+
+.step-dot.active {
+  @apply bg-[#DC143C] scale-125;
+}
+
+.step-dot.completed {
+  @apply bg-green-500;
+}
+
+.step-dot.pending {
+  @apply bg-gray-300;
+}
+
+/* AI Badge */
+.ai-badge {
+  @apply inline-flex items-center gap-1 px-2 py-1 bg-red-50 text-[#DC143C] text-xs font-medium rounded-full;
+}
+
+/* Confidence Bar */
+.confidence-bar {
+  @apply h-1 bg-gray-100 rounded-full overflow-hidden;
+}
+
+.confidence-fill {
+  @apply h-full bg-[#DC143C] rounded-full;
+}
+
+/* Body Background */
+body {
+  background-color: #F8FAFC;
+  color: #1F2937;
+}
+
+/* Airpak Script Logo Animations */
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: logoReveal 1.2s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Script Logo Text Shadow Effect */
+.script-logo-shadow {
+  text-shadow: 2px 2px 0px rgba(201, 42, 53, 0.3);
+}
+
+/* Script Logo 3D Effect */
+.script-logo-3d {
+  text-shadow:
+    3px 3px 0px #c92a35,
+    6px 6px 0px rgba(0,0,0,0.1);
+}
+
+/* iOS Loading Spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}

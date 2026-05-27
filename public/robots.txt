@@ -1,0 +1,9 @@
+# AirPak Express PWA
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: /sitemap.xml
+
+# Crawl-delay for bots
+Crawl-delay: 1

@@ -1,0 +1,210 @@
+{
+  "name": "AirPak Express - Shipping Partner",
+  "short_name": "AirPak",
+  "description": "Fast & Reliable Shipping Partner - Track shipments, create labels, and manage deliveries with ease.",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "display_override": ["window", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "orientation_lock": "portrait",
+  "theme_color": "#DC2626",
+  "background_color": "#0F172A",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "shopping", "utilities"],
+  "iarc_rating_id": "airpak-express-v1",
+  "launch_handler": {
+    "client_mode": "navigate-existing",
+    "route_matches": [
+      {
+        "pathname": "/tracking",
+        "client_mode": "focus-existing"
+      },
+      {
+        "pathname": "/ship",
+        "client_mode": "navigate-existing"
+      },
+      {
+        "pathname": "/support",
+        "client_mode": "focus-existing"
+      }
+    ]
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 480
+  },
+  "icons": [
+    {
+      "src": "/pwa-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "maskable_icons": [
+    {
+      "src": "/pwa-512x512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa-384x384-maskable.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Track Package",
+      "short_name": "Track",
+      "description": "Track your AirPak shipment status and location",
+      "url": "/#/tracking",
+      "icons": [{ "src": "/shortcut-track.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "New Shipment",
+      "short_name": "Ship",
+      "description": "Create and schedule a new shipment",
+      "url": "/#/ship",
+      "icons": [{ "src": "/shortcut-ship.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Support",
+      "short_name": "Support",
+      "description": "Contact customer support team",
+      "url": "/#/support",
+      "icons": [{ "src": "/shortcut-support.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "My Shipments",
+      "short_name": "History",
+      "description": "View your shipment history",
+      "url": "/#/history",
+      "icons": [{ "src": "/shortcut-history.png", "sizes": "96x96" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Dashboard - View all your shipments at a glance"
+    },
+    {
+      "src": "/screenshots/tracking-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Track Shipment - Real-time tracking with map view"
+    },
+    {
+      "src": "/screenshots/create-shipment.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Create Shipment - Quick and easy booking"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.airpak.express",
+      "id": "com.airpak.express"
+    }
+  ],
+  "prefer_related_applications": false,
+  "share_target": {
+    "action": "/#/share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "description",
+      "url": "url"
+    }
+  },
+  "file_handlers": [
+    {
+      "action": "/#/open-file",
+      "accept": [".pdf", ".png", ".jpg", ".jpeg"],
+      "icons": [{ "src": "/file-icon.png", "sizes": "96x96" }]
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "airpak",
+      "url": "/#/track/%s"
+    }
+  ],
+  "widgets": [
+    {
+      "id": "tracking-widget",
+      "name": "AirPak Tracking Widget",
+      "description": "Add tracking widget to your website",
+      "screenshots": ["/widgets/tracking-preview.png"],
+      "url": "/widgets/tracking.js"
+    }
+  ],
+  "backdrop_filter": "blur(8px)",
+  "capture_links": "all",
+  "create_time": "2026-01-15T00:00:00Z",
+  "update_time": "2026-05-27T00:00:00Z",
+  "scope_extensions": [
+    {
+      "origin": "https://zygoqqsgzhgpvlpttfbk.supabase.co"
+    }
+  ]
+}
