@@ -18,6 +18,7 @@ import SupportChat from './components/SupportChat';
 import { useAppStore, useUser, useNotifications, useUnreadCount } from './lib/store';
 import { useShipmentsStore, getShipmentStats } from './lib/shipmentsStore';
 import { UnifiedAuthPage } from './features/auth/UnifiedAuthPage';
+import { ModernAuth } from './features/auth/ModernAuth';
 import PortalLayout from './components/layout/PortalLayout';
 import AdminPortalLayout from './components/layout/AdminPortalLayout';
 
@@ -2001,10 +2002,12 @@ import SettingsPage from './components/SettingsPage';
 const App: React.FC = () => {
   return (
     <Routes>
-      {/* Public Routes - Start with Auth Page */}
-      <Route path="/" element={<UnifiedAuthPage />} />
-      <Route path="/login" element={<UnifiedAuthPage />} />
-      <Route path="/auth" element={<UnifiedAuthPage />} />
+      {/* Public Routes - Start with Auth Page (Modern ChatGPT-style auth) */}
+      <Route path="/" element={<ModernAuth />} />
+      <Route path="/login" element={<ModernAuth />} />
+      <Route path="/auth" element={<ModernAuth />} />
+      {/* Legacy UnifiedAuthPage kept under /legacy-auth for reference */}
+      <Route path="/legacy-auth" element={<UnifiedAuthPage />} />
 
       {/* User Portal Routes with Layout */}
       <Route path="/portal" element={<PortalLayout><PortalDashboard /></PortalLayout>} />
