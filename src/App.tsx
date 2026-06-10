@@ -19,6 +19,7 @@ import { useAppStore, useUser, useNotifications, useUnreadCount } from './lib/st
 import { useShipmentsStore, getShipmentStats } from './lib/shipmentsStore';
 import { UnifiedAuthPage } from './features/auth/UnifiedAuthPage';
 import { ModernAuth } from './features/auth/ModernAuth';
+import { ChatGPTAuth } from './features/auth/ChatGPTAuth';
 import PortalLayout from './components/layout/PortalLayout';
 import AdminPortalLayout from './components/layout/AdminPortalLayout';
 
@@ -2002,10 +2003,13 @@ import SettingsPage from './components/SettingsPage';
 const App: React.FC = () => {
   return (
     <Routes>
-      {/* Public Routes - Start with Auth Page (Modern ChatGPT-style auth) */}
-      <Route path="/" element={<ModernAuth />} />
-      <Route path="/login" element={<ModernAuth />} />
-      <Route path="/auth" element={<ModernAuth />} />
+      {/* Public Routes - ChatGPT-style 3-step auth wizard */}
+      <Route path="/" element={<ChatGPTAuth />} />
+      <Route path="/login" element={<ChatGPTAuth defaultMode="signin" />} />
+      <Route path="/signup" element={<ChatGPTAuth defaultMode="signup" />} />
+      <Route path="/auth" element={<ChatGPTAuth />} />
+      {/* ModernAuth kept as alternate for reference */}
+      <Route path="/modern-auth" element={<ModernAuth />} />
       {/* Legacy UnifiedAuthPage kept under /legacy-auth for reference */}
       <Route path="/legacy-auth" element={<UnifiedAuthPage />} />
 
